@@ -31,11 +31,11 @@ async function includeHTML() {
 }
 
 /**
- * Checking if the person is a valide user or guest. Otherwise he person will redirected to login.html
+ * Checking if the person is a valide user or guest. Otherwise he person will redirected to index.html
  */
 function checkForLogin() {
     if (userIsLoggedIn() == '' && guestIsLoggedIn() == '') {
-        window.location.href = 'login.html';
+        window.location.href = 'index.html';
     }
 }
 

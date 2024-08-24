@@ -42,11 +42,11 @@ async function addUser() {
     await saveAsObject(formatName(name.value), email, password, initials, userId);
     await setItem('users', JSON.stringify(users));
     resetButton();
-    window.location.href = 'login.html?msg=You Signed Up successfully';
+    window.location.href = 'index.html?msg=You Signed Up successfully';
 }
 
 /**
- * creating a new object in users-array // clearing localStorage if rememberme is set // add localStorage to show new signed up user-email after redirected to login.html
+ * creating a new object in users-array // clearing localStorage if rememberme is set // add localStorage to show new signed up user-email after redirected to index.html
  * 
  * @param {string} name - userinput
  * @param {string} email - userinput
