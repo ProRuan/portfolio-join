@@ -121,6 +121,10 @@
     background-image: url('../img/edit-contacts-blue.png');
 }
 
+.contact-user-button:disabled {
+    display: none;
+}
+
 .contact-button-text {
     height: 19px;
     font-family: 'Inter', sans-serif;

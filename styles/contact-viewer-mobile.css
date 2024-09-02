@@ -161,6 +161,14 @@
     background-color: #091931;
 }
 
+.contact-settings-button-mobile:disabled {
+    color: unset;
+    background-color: #2A3647;
+    box-shadow: unset;
+    opacity: 0.5;
+    cursor: unset;
+}
+
 .contact-settings-img {
     width: 32px;
     height: 32px;

@@ -45,7 +45,7 @@ async function loadAssignableContacts() {
  * Provides the assignable user.
  */
 function getAssignableUser() {
-    let user = currentUserData;
+    let user = getUserData();
     user['userId'] = 0;
     if (user.name.includes(' (You)')) {
         assignableContacts.push(user);
@@ -55,6 +55,17 @@ function getAssignableUser() {
     }
 }
 
+/**
+ * Provides the data of the user.
+ */
+function getUserData() {
+    if (userIsLoggedIn()) {
+        return currentUserData;
+    } else if (guestIsLoggedIn()) {
+        currentUserData = users[0];
+        return users[0];
+    }
+}
 
 /**
  * Provides the assignable contacts.

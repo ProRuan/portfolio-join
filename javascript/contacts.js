@@ -28,24 +28,36 @@ function removeIncludingAttribute() {
 /**
  * Initializes the contacts for guests.
  */
-function initContactsGuest() {
-    setElementAttribute('add-contact-button', 'disabled', true);
-    setElementAttribute('add-contact-button-mobile', 'disabled', true);
-    renderContactsGuestHint();
+async function initContactsGuest() {
+    await setGuestData();
+    sortContactsByName(userContacts);
+    collectInitials(userContacts);
+    setContactBgc(userContacts);
+    renderContacts();
+    disableGuestButtons();
 }
 
 
 /**
- * Renders the contacts' guest hint.
+ * Sets the data of the guest.
  */
-function renderContactsGuestHint() {
-    let contactList = getElement('contacts-collector');
-    contactList.innerHTML = `
-        <p class="contacts-guest-hint">
-            Would you like to add a contact?<br>
-            Then sign up <a href="./signup.html" target="_blank">here</a>.
-        </p>
-    `;
+async function setGuestData() {
+    currentUserData = users[0];
+    currentUserData.name = 'Guest';
+    currentUserData.email = 'guest@join.com';
+    userContacts = await getUserContactList();
+}
+
+
+/**
+ * Disables the buttons for the guests.
+ */
+function disableGuestButtons() {
+    setElementAttribute('add-contact-button', 'disabled', true);
+    setElementAttribute('edit-contact-button', 'disabled', true);
+    setElementAttribute('delete-contact-button', 'disabled', true);
+    setElementAttribute('add-contact-button-mobile', 'disabled', true);
+    setElementAttribute('contact-settings-button-mobile', 'disabled', true);
 }
 
 
